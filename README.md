@@ -5,6 +5,7 @@ Interactive Learning Rate Scheduler Playground built with Streamlit and TensorFl
 
 A minimal Streamlit app to visualize and test popular **learning rate schedules** with live training on MNIST (using TensorFlow).
 
+Live demo: [lr-scheduler-playground](https://lr-scheduler-playground.streamlit.app/)
 
 https://github.com/user-attachments/assets/0c684705-c5d0-4ec0-8d42-f483a59832a7
 
