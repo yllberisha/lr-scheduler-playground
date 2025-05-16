@@ -122,11 +122,12 @@ st.code(code_snippet, language='python')
 st.subheader(f"🚀 Real‑Time Training Demo ({choice})")
 
 import tensorflow as tf
-if force_cpu:
-    tf.config.set_visible_devices([], 'GPU')
-else:
-    for g in tf.config.list_physical_devices('GPU'):
-        tf.config.experimental.set_memory_growth(g, True)
+try:
+    if force_cpu:
+        tf.config.set_visible_devices([], 'GPU')
+except Exception:
+    pass  # Likely running on Streamlit Cloud (no GPU)
+
 
 # Sidebar controls specific to demo
 keras_epochs = st.sidebar.slider('Epochs', 1, 100, 5)
