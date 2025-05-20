@@ -104,16 +104,16 @@ num_steps = st.sidebar.number_input("Number of Steps", 1, 500, 100, 1)
 st.subheader('📐 Mathematical Formulation')
 formulae = {
     'Cosine Decay': r"LR(t) = \alpha_0 \cdot \frac{1 + \cos\left(\pi \cdot \frac{t}{T}\right)}{2}",
-    'Linear Cosine Decay': r"LR(t) = \alpha0 \cdot \left[\alpha + (1 - \alpha) \cdot \frac{1 + \cos\left(\pi \cdot \frac{t}{T}\right)}{2} + \beta \cdot \frac{t}{T} \right]",
-    'Noisy Linear Cosine Decay': r"LR(t) = LR{LCD}(t) + \mathcal{N}(0, \sigma^2)",
+    'Linear Cosine Decay': r"LR(t) = \alpha_0 \cdot \left[\alpha + (1 - \alpha) \cdot \frac{1 + \cos\left(\pi \cdot \frac{t}{T}\right)}{2} + \beta \cdot \frac{t}{T} \right]",
+    'Noisy Linear Cosine Decay': r"LR(t) = LR_{LCD}(t) + \mathcal{N}(0, \sigma^2)",
     'Cyclical Learning Rate': r"""
 \begin{aligned}
-c &= \left\lfloor 1 + \frac{t}{2S} \right\rfloor \
-x &= \left| \frac{t}{S} - 2c + 1 \right| \
-LR(t) &= LR{min} + (LR{max} - LR{min}) \cdot \max(0, 1 - x)
+c &= \left\lfloor 1 + \frac{t}{2S} \right\rfloor \\
+x &= \left| \frac{t}{S} - 2c + 1 \right| \\
+LR(t) &= LR_{min} + (LR_{max} - LR_{min}) \cdot \max(0, 1 - x)
 \end{aligned}
 """,
-    'Exponential Cyclical Learning Rate': r"LR(t) = LR{CLR}(t) \cdot \gamma^t",
+    'Exponential Cyclical Learning Rate': r"LR(t) = LR_{CLR}(t) \cdot \gamma^t",
     'Custom Learning Scheduler': r"LR(t) = \frac{1}{\sqrt{t + 1}}"
 }
 st.latex(formulae[choice])
